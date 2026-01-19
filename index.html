@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Happy 4th Years anniversary Tasnu ❤️</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* ===== 30 UNIQUE QUESTIONS ===== */
+        :root {
+            --pink: #ff2d95;
+            --purple: #c642ff;
+            --dark: #000000;
+            --light: #ffffff;
+            --glass: rgba(255, 45, 149, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
+        }
+
+        html, body {
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            position: fixed;
+        }
+
+        body {
+            background: var(--dark);
+            font-family: 'Poppins', sans-serif;
+            color: var(--light);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Game Container */
+        .game-container {
+            width: 100vw;
+            height: 100vh;
+            max-width: 500px;
+            position: relative;
+            overflow: hidden;
+            background: black;
+        }
+
+        /* Background Image */
+        .bg-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.5) blur(3px);
+            z-index: 1;
+            transition: opacity 0.5s ease;
+        }
+
+        .bg-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                to bottom,
+                rgba(0, 0, 0, 0.7) 0%,
+                rgba(0, 0, 0, 0.85) 30%,
+                rgba(0, 0, 0, 0.95) 100%
+            );
+            z-index: 2;
+        }
+
+        /* Content */
+        .content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 3;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            padding-top: max(20px, env(safe-area-inset-top));
+            padding-bottom: max(20px, env(safe-area-inset-bottom));
+        }
+
+        /* Top Bar */
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            margin-bottom: 10px;
+        }
+
+        .score {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            padding: 10px 15px;
+            border-radius: 15px;
+            font-size: 1.1em;
+            font-weight: 600;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .score span {
+            color: var(--pink);
+        }
+
+        .progress {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            padding: 10px 15px;
+            border-radius: 15px;
+            font-size: 1.1em;
+            font-weight: 600;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Title */
+        .title {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .title h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5em;
+            background: linear-gradient(45deg, var(--pink), var(--purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 5px;
+        }
+
+        .title p {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+
+        /* Question Box */
+        .question-box {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 10px 0;
+        }
+
+        .question-header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .question-number {
+            font-size: 1.5em;
+            color: var(--pink);
+            font-weight: 700;
+        }
+
+        .question-text {
+            background: var(--glass);
+            backdrop-filter: blur(15px);
+            padding: 20px;
+            border-radius: 20px;
+            font-size: 1.3em;
+            text-align: center;
+            margin-bottom: 25px;
+            width: 100%;
+            max-width: 450px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            line-height: 1.4;
+        }
+
+        /* Options */
+        .options-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            width: 100%;
+            max-width: 450px;
+            margin-bottom: 20px;
+        }
+
+        .option {
+            background: rgba(0, 0, 0, 0.7);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 18px 10px;
+            color: white;
+            font-size: 0.95em;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 90px;
+        }
+
+        .option:active {
+            transform: scale(0.98);
+        }
+
+        .option.selected {
+            border-color: var(--pink);
+            background: linear-gradient(135deg, rgba(255, 45, 149, 0.3), rgba(198, 66, 255, 0.3));
+        }
+
+        .option.correct {
+            border-color: #00C853;
+            background: linear-gradient(135deg, rgba(0, 200, 83, 0.3), rgba(76, 175, 80, 0.3));
+            animation: pulseCorrect 1s infinite;
+        }
+
+        .option.wrong {
+            border-color: #FF3D00;
+            background: linear-gradient(135deg, rgba(255, 61, 0, 0.3), rgba(221, 44, 0, 0.3));
+        }
+
+        @keyframes pulseCorrect {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+
+        .option-letter {
+            font-size: 1.2em;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--pink);
+        }
+
+        /* Navigation */
+        .nav-buttons {
+            display: flex;
+            gap: 12px;
+            width: 100%;
+            max-width: 450px;
+            margin-top: auto;
+        }
+
+        .nav-btn {
+            flex: 1;
+            padding: 16px;
+            border: none;
+            border-radius: 15px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.3s;
+        }
+
+        .nav-btn:active {
+            transform: scale(0.95);
+        }
+
+        .next-btn {
+            background: linear-gradient(135deg, var(--pink), var(--purple));
+            color: white;
+        }
+
+        .next-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .restart-btn {
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Music */
+        .music-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--pink), var(--purple));
+            border: none;
+            color: white;
+            font-size: 1.3em;
+            cursor: pointer;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Love Animation */
+        .love-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1000;
+            display: none;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 30px;
+            color: var(--pink);
+            animation: floatUp 2s ease-out forwards;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) rotate(0deg) scale(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(180deg) scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        /* Video */
+        .video-section {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: black;
+            z-index: 2000;
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .video-section video {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        /* Loading */
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: black;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            z-index: 3000;
+        }
+
+        .loading p {
+            color: white;
+            font-size: 1.2em;
+            text-align: center;
+        }
+
+        /* Hidden */
+        .hidden {
+            display: none !important;
+        }
+
+        /* Responsive */
+        @media (max-height: 700px) {
+            .question-text {
+                font-size: 1.1em;
+                padding: 15px;
+                margin-bottom: 15px;
+            }
+            
+            .option {
+                padding: 15px 8px;
+                min-height: 80px;
+                font-size: 0.9em;
+            }
+            
+            .nav-btn {
+                padding: 14px;
+            }
+        }
+
+        @media (orientation: landscape) and (max-height: 500px) {
+            .content {
+                flex-direction: row;
+                flex-wrap: wrap;
+                padding: 10px;
+            }
+            
+            .top-bar {
+                width: 100%;
+                order: 1;
+            }
+            
+            .title {
+                width: 100%;
+                order: 2;
+                margin-bottom: 10px;
+            }
+            
+            .question-box {
+                width: 50%;
+                order: 3;
+                justify-content: flex-start;
+                padding-right: 10px;
+            }
+            
+            .options-grid {
+                width: 50%;
+                order: 4;
+            }
+            
+            .nav-buttons {
+                width: 100%;
+                order: 5;
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Image -->
+    <img class="bg-image" id="bg-image" src="" alt="">
+
+    <!-- Overlay -->
+    <div class="bg-overlay"></div>
+
+    <!-- Love Animation -->
+    <div class="love-animation" id="love-animation"></div>
+
+    <!-- Video Section -->
+    <div class="video-section" id="video-section">
+        <video id="celebration-video" controls playsinline>
+            <source src="video/v1.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <!-- Loading -->
+    <div class="loading" id="loading">
+        <p id="loading-text">Wait kor.....!</p>
+    </div>
+
+    <!-- Game Container -->
+    <div class="game-container" id="game-container">
+        <div class="content">
+            <!-- Top Bar -->
+            <div class="top-bar">
+                <div class="score">
+                    Dekh koyta parsos xD: <span id="score-value">0</span>/30
+                </div>
+                <div class="progress">
+                    Question: <span id="question-counter">1</span>/30
+                </div>
+            </div>
+
+            <!-- Title -->
+            <div class="title">
+                <h1>Happy 4th Years anniversary</h1>
+                <p><h2>Dear Tasnu ❤️</h2></p>
+            </div>
+
+            <!-- Question Box -->
+            <div class="question-box">
+                <div class="question-header">
+                    <div class="question-number" id="question-number">Question 1</div>
+                </div>
+                
+                <div class="question-text" id="question-text">
+                   Wait kor xD.....!
+                </div>
+
+                <!-- Options Grid -->
+                <div class="options-grid" id="options-container">
+                    <!-- Options will be loaded by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <div class="nav-buttons">
+                <button class="nav-btn restart-btn" onclick="restartQuiz()">
+                    <i class="fas fa-redo"></i> Reset!               
+                <button class="nav-btn next-btn" id="next-btn" onclick="nextQuestion()" disabled>
+                    Next 😍 <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Music Button -->
+    <button class="music-btn" onclick="toggleMusic()" id="music-btn">
+        <i class="fas fa-music"></i>
+    </button>
+
+    <!-- Background Music -->
+    <audio id="bg-music" loop>
+        <source src="audio/song.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        // ===== 30 UNIQUE QUESTIONS =====
+        
+        // Configuration
+        const CONFIG = {
+            totalQuestions: 30,
+            sequence: "241332213324133221332413322133", // 30 digits
+            correctAnswers: [], // Will be filled from sequence
+            musicFile: "audio/song.mp3",
+            videoFile: "video/v1.mp4",
+        };
+
+        // Convert sequence to correct answers (0-based)
+        CONFIG.correctAnswers = CONFIG.sequence.split('').map(num => parseInt(num) - 1);
+
+        // ===== 30 UNIQUE QUESTIONS - REPLACE WITH YOUR ACTUAL QUESTIONS =====
+        const QUESTIONS = [
+            // Question 1
+            {
+                image: "image/1.jpeg",
+                question: "Where did we first meet?",
+                options: [
+                    "Amar Bashar gate",
+                    "Shiri te",
+                    "Chade",
+                    "Facebook"
+                ]
+            },
+            // Question 2
+            {
+                image: "image/2.jpeg",
+                question: "First kiss?",
+                options: [
+                    "Jan 16",
+                    "Jan 20",
+                    "Jan 18",
+                    "jan 22"
+                ]
+            },
+            // Question 3
+            {
+                image: "image/3.jpeg",
+                question: "Where did we go on our first date??",
+                options: [
+                    "KFC",
+                    "Mad Chef",
+                    "Basha",
+                    "Pizza Hut"
+                ]
+            },
+            // Question 4
+            {
+                image: "image/4.jpeg",
+                question: "My fev Color is?",
+                options: [
+                    "Purple",
+                    "Red",
+                    "Navy Blue",
+                    "Black"
+                ]
+            },
+            // Question 5
+            {
+                image: "image/5.jpeg",
+                question: "Where did we spend our first Valentine's Day??",
+                options: [
+                    "Mad Chef",
+                    "Basha",
+                    "Khanas",
+                    "Kolkata"
+                ]
+            },
+            // Question 6
+            {
+                image: "image/6.jpeg",
+                question: "What quality of mine do you like the most?",
+                options: [
+                    "Caring",
+                    "Stamina xD",
+                    "Loving",
+                    "Nai kisu... :)"
+                ]
+            },
+            // Question 7
+            {
+                image: "image/7.jpeg",
+                question: "What is My favorite restaurant??",
+                options: [
+                    "Mad chef",
+                    "New Town Noakhali",
+                    "Pizza Hut",
+                    "Munch"
+                ]
+            },
+            // Question 8
+            {
+                image: "image/8.jpeg",
+                question: "First biological Word ki shikso amar theke?",
+                options: [
+                    "bessel",
+                    "panthera trigis",
+                    "Hydra",
+                    "meta fiber"
+                ]
+            },
+            // Question 9
+            {
+                image: "image/9.jpeg",
+                question: "first......?",
+                options: [
+                    "Feb 13",
+                    "Feb 19",
+                    "Feb 1",
+                    "Jan 31"
+                ]
+            },
+            // Question 10
+            {
+                image: "image/10.jpeg",
+                question: "Our Friendship Date?",
+                options: [
+                    "14 October",
+                    "9 october",
+                    "23 October",
+                    "29 October"
+                ]
+            },
+            // Question 11
+            {
+                image: "image/11.jpeg",
+                question: "What was the first gift you gave me??",
+                options: [
+                    "Chocolate",
+                    "Wallet",
+                    "Flower",
+                    "Teddy Bear"
+                ]
+            },
+            // Question 12
+            {
+                image: "image/12.jpeg",
+                question: "What is my favorite food??",
+                options: [
+                    "চিকেন ফ্রাই",
+                    "বার্গার",
+                    "পিজ্জা",
+                    "Tasnu"
+                ]
+            },
+            // Question 13
+            {
+                image: "image/13.jpeg",
+                question: "What is our favorite game??",
+                options: [
+                    "Pubg mobile",
+                    "CR",
+                    "Coc",
+                    "Free fire WAk"
+                ]
+            },
+            // Question 14
+            {
+                image: "image/14.jpeg",
+                question: "My Nickname for you?",
+                options: [
+                    "Onu",
+                    "Ay",
+                    "Oynu",
+                    "oy"
+                ]
+            },
+            // Question 15
+            {
+                image: "image/15.jpeg",
+                question: "Where was our first photoshoot??",
+                options: [
+                    "Basay",
+                    "Mad chef",
+                    "Chade",
+                    "Bailey"
+                ]
+            },
+            // Question 16
+            {
+                image: "image/16.jpeg",
+                question: "Your fev Food?",
+                options: [
+                    "Burger",
+                    "Me",
+                    "Pizza",
+                    "Pasta"
+                ]
+            },
+            // Question 17
+            {
+                image: "image/17.jpeg",
+                question: "First hug ai amra ki porechilam?",
+                options: [
+                    "T shirt",
+                    "Huddie",
+                    "shirt",
+                    "Jeans"
+                ]
+            },
+            // Question 18
+            {
+                image: "image/18.jpeg",
+                question: "How do we celebrate our anniversary??",
+                options: [
+                    "BY Love",
+                    "Jogra xD",
+                    "Kiss",
+                    "Dinner Date"
+                ]
+            },
+            // Question 19
+            {
+                image: "image/19.jpeg",
+                question: "What is your favorite book??",
+                options: [
+                    "হিমু",
+                    "মিসির আলি",
+                    "Amake Pora",
+                    "পদ্মা নদীর মাঝি"
+                ]
+            },
+            // Question 20
+            {
+                image: "image/20.jpeg",
+                question: "why me❤️?",
+                options: [
+                    "karon ami tomake love kori",
+                    "hotty me",
+                    "Tomar daddy ami tai xD",
+                    "Alakar boro vai tai xD"
+                ]
+            },
+            // Question 21
+            {
+                image: "image/21.jpeg",
+                question: "TV te ki kheltam amra??",
+                options: [
+                    "GTA V",
+                    "Mortal kombat",
+                    "FIFA",
+                    "NFS"
+                ]
+            },
+            // Question 22
+            {
+                image: "image/22.jpeg",
+                question: "My fev chocolate?",
+                options: [
+                    "ferrero rocher",
+                    "Dairy Milk",
+                    "Bournville",
+                    "Kit kat"
+                ]
+            },
+            // Question 23
+            {
+                image: "image/23.jpeg",
+                question: "Rose er bodle ki disilam first?",
+                options: [
+                    "Aloe vera",
+                    "Wine",
+                    "Mango",
+                    "Chummah"
+                ]
+            },
+            // Question 24
+            {
+                image: "image/24.jpeg",
+                question: "Which habit of mine do you like??",
+                options: [
+                    "Study",
+                    "Sleep",
+                    "Childness",
+                    "TUTlinkpong"
+                ]
+            },
+            // Question 25
+            {
+                image: "image/25.jpeg",
+                question: "What is my favorite ice cream flavor❤️??",
+                options: [
+                    "Chocolate",
+                    "Vanilla",
+                    "butter scotch",
+                    "strawberry"
+                ]
+            },
+            // Question 26
+            {
+                image: "image/26.jpeg",
+                question: "Kon game first tumi amar shate moteo khelte parta na?",
+                options: [
+                    "MK",
+                    "FIFA",
+                    "NFS",
+                    "GTA V"
+                ]
+            },
+            // Question 27
+            {
+                image: "image/27.jpeg",
+                question: "Virtual life amra kon sports game kheltam?",
+                options: [
+                    "Cricket",
+                    "Badminton",
+                    "Football",
+                    "Ludo"
+                ]
+            },
+            // Question 28
+            {
+                image: "image/28.jpeg",
+                question: "Virtual life a first konta khelechi❤️?",
+                options: [
+                    "Uno",
+                    "Ludo",
+                    "Ouija board",
+                    "Cherry cherry are you here?"
+                ]
+            },
+            // Question 29
+            {
+                image: "image/29.jpeg",
+                question: "Amar weight koto ko xD(kor vhul xD)?",
+                options: [
+                    "63kg",
+                    "60kg",
+                    "65kg",
+                    "67kg"
+                ]
+            },
+            // Question 30
+            {
+                image: "image/30.jpeg",
+                question: "Amra kader moto🥰?",
+                options: [
+                    "Shakib-Misha",
+                    "Shahjan-Momtaz",
+                    "Mamun-Laila",
+                    "Ayon-Tasnim🥰"
+                ]
+            }
+        ];
+
+        // Make sure we have exactly 30 questions
+        if (QUESTIONS.length !== CONFIG.totalQuestions) {
+            console.error(`Error: Expected ${CONFIG.totalQuestions} questions, but found ${QUESTIONS.length}`);
+        }
+
+        // Game State
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let selectedOptionIndex = null;
+        let isMusicPlaying = false;
+
+        // DOM Elements
+        const elements = {
+            bgImage: document.getElementById('bg-image'),
+            questionText: document.getElementById('question-text'),
+            questionNumber: document.getElementById('question-number'),
+            optionsContainer: document.getElementById('options-container'),
+            scoreValue: document.getElementById('score-value'),
+            questionCounter: document.getElementById('question-counter'),
+            nextBtn: document.getElementById('next-btn'),
+            loveAnimation: document.getElementById('love-animation'),
+            videoSection: document.getElementById('video-section'),
+            bgMusic: document.getElementById('bg-music'),
+            musicBtn: document.getElementById('music-btn'),
+            loading: document.getElementById('loading'),
+            loadingText: document.getElementById('loading-text'),
+            gameContainer: document.getElementById('game-container')
+        };
+
+        // Initialize Game
+        function initGame() {
+            // Preload first image
+            const firstQuestion = QUESTIONS[0];
+            const img = new Image();
+            img.src = firstQuestion.image;
+            
+            elements.loadingText.textContent = "Wait kor.....!";
+            
+            img.onload = () => {
+                elements.loading.style.display = 'none';
+                elements.gameContainer.style.display = 'block';
+                loadQuestion(currentQuestionIndex);
+                startMusic();
+            };
+            
+            img.onerror = () => {
+                // Fallback if image fails to load
+                elements.loading.style.display = 'none';
+                elements.gameContainer.style.display = 'block';
+                loadQuestion(currentQuestionIndex);
+                startMusic();
+            };
+        }
+
+        // Load Question
+        function loadQuestion(index) {
+            const question = QUESTIONS[index];
+            
+            // Update background image with fade effect
+            elements.bgImage.style.opacity = '0';
+            setTimeout(() => {
+                elements.bgImage.src = question.image;
+                elements.bgImage.alt = `Question ${index + 1} এর ছবি`;
+                elements.bgImage.style.opacity = '1';
+            }, 300);
+            
+            // Update question text
+            elements.questionText.textContent = question.question;
+            elements.questionNumber.textContent = `Question ${index + 1}`;
+            elements.questionCounter.textContent = `${index + 1}/${CONFIG.totalQuestions}`;
+            
+            // Clear previous options
+            elements.optionsContainer.innerHTML = '';
+            
+            // Create new options
+            question.options.forEach((optionText, optionIndex) => {
+                const optionDiv = document.createElement('div');
+                optionDiv.className = 'option';
+                optionDiv.innerHTML = `
+                    <div class="option-letter">${String.fromCharCode(65 + optionIndex)}</div>
+                    <div>${optionText}</div>
+                `;
+                
+                optionDiv.onclick = () => selectOption(optionIndex, optionDiv);
+                elements.optionsContainer.appendChild(optionDiv);
+            });
+            
+            // Reset selection
+            selectedOptionIndex = null;
+            elements.nextBtn.disabled = true;
+        }
+
+        // Select Option
+        function selectOption(optionIndex, element) {
+            // Remove selected class from all options
+            document.querySelectorAll('.option').forEach(opt => {
+                opt.classList.remove('selected', 'correct', 'wrong');
+            });
+            
+            // Add selected class to clicked option
+            element.classList.add('selected');
+            selectedOptionIndex = optionIndex;
+            
+            // Get correct answer for this question
+            const correctAnswerIndex = CONFIG.correctAnswers[currentQuestionIndex];
+            
+            // Mark correct/wrong immediately
+            if (optionIndex === correctAnswerIndex) {
+                element.classList.add('correct');
+            } else {
+                element.classList.add('wrong');
+                // Highlight correct answer
+                const correctOption = document.querySelectorAll('.option')[correctAnswerIndex];
+                correctOption.classList.add('correct');
+            }
+            
+            // Enable next button
+            elements.nextBtn.disabled = false;
+        }
+
+        // Next Question
+        function nextQuestion() {
+            if (selectedOptionIndex === null) return;
+            
+            // Check if answer is correct
+            const correctAnswerIndex = CONFIG.correctAnswers[currentQuestionIndex];
+            if (selectedOptionIndex === correctAnswerIndex) {
+                score++;
+                elements.scoreValue.textContent = score;
+                showLoveAnimation();
+            }
+            
+            // Move to next question
+            currentQuestionIndex++;
+            
+            if (currentQuestionIndex < CONFIG.totalQuestions) {
+                loadQuestion(currentQuestionIndex);
+            } else {
+                completeQuiz();
+            }
+        }
+
+        // Show Love Animation
+        function showLoveAnimation() {
+            elements.loveAnimation.innerHTML = '';
+            
+            // Create 15 floating hearts
+            for (let i = 0; i < 15; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.innerHTML = '❤️';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDelay = i * 0.1 + 's';
+                heart.style.fontSize = Math.random() * 20 + 20 + 'px';
+                heart.style.color = i % 2 === 0 ? 'var(--pink)' : 'var(--purple)';
+                elements.loveAnimation.appendChild(heart);
+            }
+            
+            elements.loveAnimation.style.display = 'block';
+            setTimeout(() => {
+                elements.loveAnimation.style.display = 'none';
+            }, 2000);
+        }
+
+        // Complete Quiz
+        function completeQuiz() {
+            // Stop music
+            elements.bgMusic.pause();
+            
+            // Show video after delay
+            setTimeout(() => {
+                showVideo();
+            }, 1500);
+            
+            // Final celebration
+            for (let i = 0; i < 5; i++) {
+                setTimeout(() => showLoveAnimation(), i * 400);
+            }
+        }
+
+        // Show Video
+        function showVideo() {
+            elements.videoSection.style.display = 'flex';
+            const video = document.getElementById('celebration-video');
+            video.src = CONFIG.videoFile;
+            video.play();
+            
+            // Add replay button when video ends
+            video.onended = () => {
+                const replayBtn = document.createElement('button');
+                replayBtn.className = 'nav-btn next-btn';
+                replayBtn.innerHTML = '<i class="fas fa-redo"></i> আবার খেলুন';
+                replayBtn.style.position = 'absolute';
+                replayBtn.style.bottom = '50px';
+                replayBtn.style.left = '50%';
+                replayBtn.style.transform = 'translateX(-50%)';
+                replayBtn.onclick = restartQuiz;
+                elements.videoSection.appendChild(replayBtn);
+            };
+        }
+
+        // Restart Quiz
+        function restartQuiz() {
+            if (confirm('আপনি কি কুইজ আবার শুরু করতে চান?')) {
+                currentQuestionIndex = 0;
+                score = 0;
+                selectedOptionIndex = null;
+                
+                elements.scoreValue.textContent = '0';
+                elements.videoSection.style.display = 'none';
+                elements.gameContainer.style.display = 'block';
+                
+                const video = document.getElementById('celebration-video');
+                video.pause();
+                video.currentTime = 0;
+                
+                // Remove replay button if exists
+                const replayBtn = elements.videoSection.querySelector('.nav-btn');
+                if (replayBtn) replayBtn.remove();
+                
+                startMusic();
+                loadQuestion(currentQuestionIndex);
+            }
+        }
+
+        // Music Functions
+        function startMusic() {
+            elements.bgMusic.src = CONFIG.musicFile;
+            elements.bgMusic.volume = 0.3;
+            elements.bgMusic.play().then(() => {
+                isMusicPlaying = true;
+                elements.musicBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
+            }).catch(() => {
+                isMusicPlaying = false;
+                elements.musicBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
+            });
+        }
+
+        function toggleMusic() {
+            if (isMusicPlaying) {
+                elements.bgMusic.pause();
+                elements.musicBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
+            } else {
+                elements.bgMusic.play();
+                elements.musicBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
+            }
+            isMusicPlaying = !isMusicPlaying;
+        }
+
+        // Initialize when page loads
+        window.addEventListener('load', initGame);
+    </script>
+</body>
+</html>
